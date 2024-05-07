@@ -1,18 +1,27 @@
 import React from "react";
 import "./Header.css";
+import SearchIcon from "@mui/icons-material/Search";
+import HomeIcon from "@mui/icons-material/Home";
+import GroupIcon from "@mui/icons-material/Group";
+import HeaderOption from "./HeaderOption";
 
 function Header() {
       return (
             <div className="header">
-                  <h1>This is the Header</h1>
                   <div className="header__left">
-                        <img src="" alt="" />
+                        <img
+                              src="https://img.icons8.com/color/48/linkedin.png"
+                              alt=""
+                        />
                         <div className="header__search">
-                              {/* Search Icon */}
+                              <SearchIcon />
                               <input type="text" />
                         </div>
                   </div>
-                  <div className="header__right"></div>
+                  <div className="header__right">
+                        <HeaderOption Icon={HomeIcon} title="Home" />
+                        <HeaderOption Icon={GroupIcon} title="My Network" />
+                  </div>
             </div>
       );
 }
