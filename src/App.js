@@ -1,10 +1,17 @@
 import React from "react";
+import Header from "./Header";
 import "./App.css";
 
 function App() {
       return (
             <div className="app">
-                  <h1>Lets build a linked in clone</h1>
+                  {/* {Header} */}
+                  <Header />
+
+                  {/* App body */}
+                  {/* Sidebar */}
+                  {/*  Feed */}
+                  {/* Widgets */}
             </div>
       );
 }
