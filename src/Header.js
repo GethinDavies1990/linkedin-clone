@@ -6,7 +6,6 @@ import GroupIcon from "@mui/icons-material/Group";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import FaceIcon from "@mui/icons-material/Face";
 import HeaderOption from "./HeaderOption";
 
 function Header() {
