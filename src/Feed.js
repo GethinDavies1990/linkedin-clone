@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "./Feed.css";
 import Post from "./Post";
@@ -8,12 +8,34 @@ import ImageIcon from "@mui/icons-material/Image";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import EventIcon from "@mui/icons-material/Event";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { db } from "./firebase";
+import firebase from 'firebase';
 
 function Feed() {
+      const [input, setInput] = useState("");
       const [posts, setPosts] = useState([]);
+
+      useEffect(() => {
+            db.collection("posts").onSnapshot((snapshot) =>
+                  setPosts(
+                        snapshot.docs.map((doc) => ({
+                              id: doc.id,
+                              data: doc.data(),
+                        }))
+                  )
+            );
+      }, []);
 
       const sendPost = (e) => {
             e.preventDefault();
+
+            db.collection("posts").add({
+                  name: "Gethin Davies",
+                  description: "This is a test",
+                  message: input,
+                  photoUrl: '',
+                  timestamp: firebase.firestore.fieldValue.serverTimestamp();
+            });
       };
 
       return (
@@ -22,7 +44,13 @@ function Feed() {
                         <div className="feed__input">
                               <CreateIcon />
                               <form>
-                                    <input type="text" />
+                                    <input
+                                          value={input}
+                                          onChange={(e) =>
+                                                setInput(e.target.value)
+                                          }
+                                          type="text"
+                                    />
                                     <button onClick={sendPost} type="submit">
                                           Send
                                     </button>
