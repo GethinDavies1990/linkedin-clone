@@ -9,7 +9,7 @@ import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import EventIcon from "@mui/icons-material/Event";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { db } from "./firebase";
-import firebase from 'firebase';
+import firebase from "firebase";
 
 function Feed() {
       const [input, setInput] = useState("");
@@ -33,8 +33,8 @@ function Feed() {
                   name: "Gethin Davies",
                   description: "This is a test",
                   message: input,
-                  photoUrl: '',
-                  timestamp: firebase.firestore.fieldValue.serverTimestamp();
+                  photoUrl: "",
+                  timestamp: firebase.firestore.fieldValue.serverTimestamp(),
             });
       };
 
