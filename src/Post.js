@@ -1,5 +1,5 @@
 import React from "react";
-import "./Posts.css";
+import "./Post.css";
 import InputOption from "./InputOption";
 import { Avatar } from "@mui/material";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
