@@ -1,5 +1,5 @@
 import React from "react";
-import "./Post.css";
+import "./Posts.css";
 import { Avatar } from "@mui/material";
 
 function Posts({ name, description, message, photoUrl }) {

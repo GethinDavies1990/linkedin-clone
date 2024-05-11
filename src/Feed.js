@@ -1,5 +1,6 @@
 import React from "react";
 import "./Feed.css";
+import Posts from "./Posts";
 import InputOption from "./InputOption";
 import CreateIcon from "@mui/icons-material/Create";
 import ImageIcon from "@mui/icons-material/Image";
@@ -41,7 +42,11 @@ function Feed() {
                               />
                         </div>
                   </div>
-                  {/* Posts */}
+                  <Posts
+                        name="Gethin Davies"
+                        description="This is a Test"
+                        message="Wow this worked"
+                  />
             </div>
       );
 }
