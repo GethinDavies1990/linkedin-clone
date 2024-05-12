@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Feed.css";
 import Post from "./Post";
 import InputOption from "./InputOption";
@@ -9,10 +8,11 @@ import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import EventIcon from "@mui/icons-material/Event";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { db } from "./firebase";
+import firebase from "firebase";
 
 function Feed() {
-      const [input, setInput] = useState("");
       const [posts, setPosts] = useState([]);
+      const [input, setInput] = useState("");
 
       useEffect(() => {
             db.collection("posts").onSnapshot((snapshot) =>
@@ -33,7 +33,7 @@ function Feed() {
                   description: "This is a test",
                   message: input,
                   photoUrl: "",
-                  timestamp: firebase.firestore.fieldValue.serverTimestamp(),
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
       };
 
