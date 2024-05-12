@@ -9,8 +9,11 @@ import EventIcon from "@mui/icons-material/Event";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { db } from "./firebase";
 import firebase from "firebase";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 
 function Feed() {
+  const user = useSelector(selectUser);
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
 
@@ -31,10 +34,10 @@ function Feed() {
     e.preventDefault();
 
     db.collection("posts").add({
-      name: "Gethin Davies",
-      description: "This is a test",
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: "",
+      photoUrl: user.photoUrl,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
