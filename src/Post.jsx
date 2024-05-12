@@ -6,10 +6,11 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import AddCommentIcon from "@mui/icons-material/AddComment";
 import ShareIcon from "@mui/icons-material/Share";
 import SendIcon from "@mui/icons-material/Send";
+import { forwardRef } from "react";
 
-function Posts({ name, description, message, photoUrl }) {
+const Posts = forwardRef(({ name, description, message, photoUrl }, ref) => {
   return (
-    <div className='post'>
+    <div ref={ref} className='post'>
       <div className='post__header'>
         <Avatar src={photoUrl}>{name[0]}</Avatar>
         <div className='post__info'>
@@ -28,6 +29,6 @@ function Posts({ name, description, message, photoUrl }) {
       </div>
     </div>
   );
-}
+});
 
 export default Posts;
